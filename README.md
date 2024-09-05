@@ -40,18 +40,6 @@
             text-align: center;
         }
 
-        .content h2 {
-            font-size: 2em;
-            color: #00FF00;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #ddd; /* Helles Grau für bessere Lesbarkeit */
-        }
-
         /* Button-Stil */
         .button {
             display: inline-block;
@@ -146,9 +134,6 @@
 
     <!-- Hauptinhalt -->
     <div class="content">
-        <h2>Welcome to TOXIC SERVICES</h2>
-        <p>Your trusted partner in delivering top-notch services with professionalism and confidentiality. Explore our offerings below.</p>
-        
         <div class="services">
             <!-- Service-Karten -->
             <div class="service-card">
