@@ -27,7 +27,11 @@
             background-color: #111; /* Etwas helleres Schwarz für den Header */
             position: fixed;
             top: 0;
+            left: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: center; /* Zentriert den Inhalt horizontal */
+            align-items: center; /* Zentriert den Inhalt vertikal */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
