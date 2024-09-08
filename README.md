@@ -1,111 +1,72 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOXIC SERVICES</title>
     <style>
-        /* Allgemeines Seitenlayout */
         body {
-            background-color: #0d0d0d; /* Tiefschwarz für einen professionellen Look */
-            color: #00FF00; /* Giftgrün */
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #00FF00; /* Giftgrün */
         }
 
-        /* Header */
         header {
-            background-color: #111; /* Etwas helleres Schwarz für den Header */
-            padding: 30px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #111;
+            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin: 0;
             color: #00FF00;
         }
 
-        /* Hauptinhalt */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #00FF00;
+            font-size: 1.2em;
+            margin-left: 20px;
+        }
+
         .content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
+            padding: 50px;
             text-align: center;
         }
 
-        /* Button-Stil */
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            margin: 15px;
-            border: 2px solid #00FF00;
-            color: #00FF00;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+        .content h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
         }
 
-        .button:hover {
-            background-color: #00FF00;
-            color: black;
-        }
-
-        /* Discord Button */
-        .discord-button {
-            background-color: #5865F2; /* Discord Blau */
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .discord-button:hover {
-            background-color: #4752C4; /* Etwas dunkler bei Hover */
-        }
-
-        /* Footer-Design */
-        footer {
-            background-color: #111;
-            color: #00FF00;
-            padding: 20px;
-            text-align: right;
-            font-size: 0.8em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            right: 0;
-        }
-
-        /* Container für Dienstleistungen */
         .services {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
-            padding: 40px 0;
+            margin-top: 30px;
         }
 
         .service-card {
             background-color: #1a1a1a;
             padding: 20px;
-            border: 1px solid #00FF00;
             border-radius: 8px;
             width: 250px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             text-align: center;
-            transition: transform 0.2s;
+            border: 1px solid #00FF00;
+            transition: transform 0.3s;
         }
 
         .service-card:hover {
@@ -123,29 +84,80 @@
             line-height: 1.5;
         }
 
+        footer {
+            background-color: #111;
+            color: #00FF00;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 15px;
+            border: 2px solid #00FF00;
+            color: #00FF00;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #00FF00;
+            color: black;
+        }
+
+        .discord-button {
+            background-color: #5865F2; /* Discord Blau */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .discord-button:hover {
+            background-color: #4752C4; /* Etwas dunkler bei Hover */
+        }
     </style>
 </head>
 <body>
-    <!-- Fester Header -->
     <header>
         <h1>TOXIC SERVICES</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <a href="terms.html">Terms</a> <!-- Terms Button -->
+        </nav>
     </header>
 
-    <!-- Hauptinhalt -->
     <div class="content">
+        <h2>Welcome to TOXIC SERVICES</h2>
+        <p>Professional services with the highest standards, always at your service.</p>
+        
         <div class="services">
-            <!-- Service-Karten -->
             <div class="service-card">
                 <h3>Service 1</h3>
-                <p>Beschreibung von Service 1, der erklärt, was wir tun und warum wir die besten sind.</p>
+                <p>Professional consulting services for your business needs.</p>
             </div>
             <div class="service-card">
                 <h3>Service 2</h3>
-                <p>Beschreibung von Service 2, der erklärt, was wir tun und warum wir die besten sind.</p>
+                <p>Expert guidance and support in your industry.</p>
             </div>
             <div class="service-card">
                 <h3>Service 3</h3>
-                <p>Beschreibung von Service 3, der erklärt, was wir tun und warum wir die besten sind.</p>
+                <p>Dedicated services to help you achieve your goals.</p>
             </div>
         </div>
 
@@ -153,7 +165,6 @@
         <a href="https://discord.gg/m5evbR2rFz" target="_blank" class="discord-button">Join Our Discord</a>
     </div>
 
-    <!-- Footer -->
     <footer>
         &copy; 2024 TOXIC SERVICES. All rights reserved.
     </footer>
