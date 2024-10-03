@@ -4,200 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toxic Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <style>
-        /* Allgemeine Stile */
         body {
             margin: 0;
-            font-family: 'Roboto Mono', monospace;
-            background-color: #000;
-            color: #00ff00;
+            font-family: 'Roboto', sans-serif;
+            background: black; /* Fallback for background */
+            color: #cccccc;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             height: 100vh;
             text-align: center;
-            overflow: hidden;
+            overflow: hidden; /* No scrolling */
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 5px;
+        /* Background: Blurred Matrix Rain */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://your-matrix-rain-animation-link.gif') no-repeat center center/cover;
+            filter: blur(5px); /* Blurred background */
+            z-index: -1; /* Behind all content */
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px; /* Abstand zwischen den Links */
+        .container {
+            z-index: 1; /* Content above background */
         }
 
-        nav ul li {
-            margin: 0;
+        h1 {
+            font-family: 'Merriweather', serif;
+            color: #ff0033;
+            margin: 50px 0 20px; /* Increase margin for more spacing */
+            font-size: 4rem; /* Increase size of the title */
+            animation: glitch 2s infinite;
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #00ffff;
-            font-size: 1rem;
+        h2 {
+            font-family: 'Merriweather', serif;
+            color: #ff0033;
+            margin-bottom: 20px;
+            animation: glitch 2s infinite;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Glitch-Effekt */
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 2px rgba(255, 0, 0, 0.8), -2px -2px rgba(0, 255, 0, 0.8);
+            }
+            20% {
+                text-shadow: -2px 2px rgba(0, 255, 0, 0.8), 2px -2px rgba(255, 0, 0, 0.8);
+                transform: translate(2px, -2px);
+            }
+            40% {
+                text-shadow: 2px -2px rgba(255, 0, 0, 0.8), -2px 2px rgba(0, 255, 0, 0.8);
+                transform: translate(-2px, 2px);
+            }
+            60% {
+                text-shadow: -2px -2px rgba(0, 255, 0, 0.8), 2px 2px rgba(255, 0, 0, 0.8);
+                transform: translate(2px, 2px);
+            }
+            80% {
+                text-shadow: 2px 2px rgba(0, 255, 0, 0.8), -2px -2px rgba(255, 0, 0, 0.8);
+                transform: translate(-2px, -2px);
+            }
+            100% {
+                text-shadow: -2px 2px rgba(255, 0, 0, 0.8), 2px -2px rgba(0, 255, 0, 0.8);
+            }
+        }
+
+        .glitch {
             position: relative;
+            display: inline-block;
+            color: #ff0033;
+            font-family: 'Merriweather', serif;
         }
 
-        /* Hover-Glitch-Effekt für Links */
-        nav ul li a::before {
-            content: '';
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #00ffff;
-            z-index: -1;
-            clip-path: polygon(0 0, 100% 0, 100% 20%, 0% 100%);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease-in-out;
+            background-color: black;
+            overflow: hidden;
         }
 
-        nav ul li a:hover::before {
-            transform: translateX(0);
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            animation: glitch 1s infinite;
         }
 
-        /* Haupttitel - verstärkter Glitch-Effekt */
-        h1 {
-            font-size: 4rem;
-            color: #00ff00;
-            position: relative;
-            animation: glitch 2s infinite;
-        }
-
-        p {
-            margin-top: -20px;
-            color: #00ffff;
-        }
-
-        /* Zusätzlicher Glitch-Effekt */
-        @keyframes glitch {
-            0% {
-                text-shadow: 2px 0px 2px rgba(255, 0, 0, 0.75), -2px 0px 2px rgba(0, 255, 0, 0.75);
-            }
-            10% {
-                transform: translate(-2px, -2px) skew(-0.2deg, 0.3deg);
-            }
-            20% {
-                text-shadow: -2px 0px 2px rgba(0, 255, 0, 0.75), 2px 0px 2px rgba(0, 0, 255, 0.75);
-            }
-            30% {
-                transform: translate(2px, 2px) skew(0.2deg, -0.3deg);
-            }
-            40% {
-                text-shadow: 2px 0px 2px rgba(0, 0, 255, 0.75), -2px 0px 2px rgba(255, 0, 0, 0.75);
-            }
-            50% {
-                transform: translate(-2px, -1px);
-            }
-            60% {
-                text-shadow: -2px 0px 2px rgba(255, 0, 0, 0.75), 2px 0px 2px rgba(0, 255, 0, 0.75);
-            }
-            70% {
-                transform: translate(0px, 2px);
-            }
-            80% {
-                text-shadow: 2px 0px 2px rgba(0, 255, 0, 0.75), -2px 0px 2px rgba(0, 0, 255, 0.75);
-            }
-            90% {
-                transform: translate(1px, -2px);
-            }
-            100% {
-                text-shadow: 2px 0px 2px rgba(0, 0, 255, 0.75), -2px 0px 2px rgba(255, 0, 0, 0.75);
-                transform: translate(0px, 0px);
-            }
-        }
-
-        /* Abschnitte für Navigation */
-        section {
-            padding: 100px 20px;
-            color: #00ff00;
-            min-height: 100vh;
-            background-color: #000;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 10px;
-            color: #555;
+        .glitch::after {
+            left: -2px;
+            text-shadow: 2px 0 green;
+            animation: glitch 1s infinite reverse;
         }
 
         a {
-            color: #00ffff;
+            color: #00ff00;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #00ff00;
+            color: #ff0033;
         }
+
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hauptinhalt -->
-    <main>
+    <div class="container">
+        <!-- Toxic Services Title -->
         <h1>Toxic Services</h1>
-        <p>Zugriff erhalten. Wähle deinen Pfad...</p>
-    </main>
 
-    <!-- Sektionen -->
-    <section id="services">
-        <h2>Unsere Services</h2>
-        <p>Diskrete und anonyme Lösungen für deine Anforderungen.</p>
-        <!-- Link zu deiner Website -->
-        <p>Mehr erfahren auf: <a href="https://deine-website.com" target="_blank">https://deine-website.com</a></p>
-    </section>
+        <!-- About Section -->
+        <div>
+            <h2 class="glitch" data-text="Über uns">Über uns</h2>
+            <p class="glitch" data-text="W!r s1n|> 3i^n 9#äh1 fr!3e H&ck$rz, di3 #I!mh&ll||en der <Städte> brenn3n l@ssen.">W!r s1n|> 3i^n 9#äh1 fr!3e H&ck$rz, di3 #I!mh&ll||en der <Städte> brenn3n l@ssen.</p>
+        </div>
 
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Für mehr Informationen: <a href="mailto:info@toxicservices.com">info@toxicservices.com</a></p>
-    </section>
+        <!-- Services Section -->
+        <div>
+            <h2 class="glitch" data-text="Unsere Services">Unsere Services</h2>
+            <p class="glitch" data-text="Entdecke die besten anonymen Lösungen. Klicke hier: <a href='https://commerce-website.com' target='_blank'>https://commerce-website.com</a>">Entdecke die besten anonymen Lösungen. Klicke hier: <a href="https://commerce-website.com" target="_blank">https://commerce-website.com</a></p>
+        </div>
 
-    <section id="about">
-        <h2>Über uns</h2>
-        <p>Toxic Services bietet spezialisierte Dienstleistungen für Cyber-Operations und Netzwerksicherheit.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Toxic Services | anonym und effizient</p>
-    </footer>
-
-    <!-- JavaScript für Smooth Scrolling -->
-    <script>
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-
-                window.scrollTo({
-                    top: targetSection.offsetTop,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+        <!-- Contact Section -->
+        <div>
+            <h2 class="glitch" data-text="Kontakt">Kontakt</h2>
+            <p class="glitch" data-text="Verbinde dich mit uns auf unserem Discord: <a href='https://discord.com/invite/yourserver' target='_blank'>Discord Server</a>">Verbinde dich mit uns auf unserem Discord: <a href="https://discord.com/invite/yourserver" target="_blank">Discord Server</a></p>
+        </div>
+    </div>
 </body>
 </html>
