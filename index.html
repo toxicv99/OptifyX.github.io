@@ -36,10 +36,11 @@
             margin: 0;
             padding: 0;
             display: flex;
+            gap: 20px; /* Abstand zwischen den Links */
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin: 0;
         }
 
         nav ul li a {
@@ -74,6 +75,11 @@
             color: #00ff00;
             position: relative;
             animation: glitch 2s infinite;
+        }
+
+        p {
+            margin-top: -20px;
+            color: #00ffff;
         }
 
         /* Zusätzlicher Glitch-Effekt */
@@ -119,12 +125,22 @@
             padding: 100px 20px;
             color: #00ff00;
             min-height: 100vh;
+            background-color: #000;
         }
 
         footer {
             position: absolute;
             bottom: 10px;
             color: #555;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00ff00;
         }
     </style>
 </head>
@@ -148,6 +164,8 @@
     <section id="services">
         <h2>Unsere Services</h2>
         <p>Diskrete und anonyme Lösungen für deine Anforderungen.</p>
+        <!-- Link zu deiner Website -->
+        <p>Mehr erfahren auf: <a href="https://deine-website.com" target="_blank">https://deine-website.com</a></p>
     </section>
 
     <section id="contact">
