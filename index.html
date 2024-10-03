@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,53 +9,47 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: black; /* Fallback for background */
-            color: #cccccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            overflow: hidden; /* No scrolling */
+            overflow: hidden;
+            color: #00ff00;
         }
-
-        /* Background: Blurred Matrix Rain */
-        body::before {
-            content: "";
-            position: absolute;
+        canvas {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://your-matrix-rain-animation-link.gif') no-repeat center center/cover;
-            filter: blur(5px); /* Blurred background */
-            z-index: -1; /* Behind all content */
+            z-index: -1;
+            filter: blur(3px); /* Background blurred */
         }
-
-        .container {
-            z-index: 1; /* Content above background */
+        header {
+            text-align: center;
+            padding: 30px; /* Reduced padding for header */
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            z-index: 1; /* Overlay the background */
+            position: relative;
         }
-
         h1 {
-            font-family: 'Merriweather', serif;
-            color: #ff0033;
-            margin: 50px 0 20px; /* Increase margin for more spacing */
-            font-size: 4rem; /* Increase size of the title */
-            animation: glitch 2s infinite;
+            font-size: 3rem; /* Smaller font size for the title */
         }
-
+        section {
+            padding: 20px; /* Reduced padding for sections */
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1; /* Overlay the background */
+            margin-top: 10px; /* Adjusted spacing between sections */
+        }
         h2 {
             font-family: 'Merriweather', serif;
             color: #ff0033;
-            margin-bottom: 20px;
-            animation: glitch 2s infinite;
+            margin: 10px 0; /* Reduced margin for h2 */
+            animation: glitch 2s infinite; /* Glitch effect */
         }
-
         p {
             font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem; /* Slightly larger font for text */
         }
 
-        /* Glitch-Effekt */
+        /* Glitch effect */
         @keyframes glitch {
             0% {
                 text-shadow: 2px 2px rgba(255, 0, 0, 0.8), -2px -2px rgba(0, 255, 0, 0.8);
@@ -84,7 +78,7 @@
         .glitch {
             position: relative;
             display: inline-block;
-            color: #ff0033;
+            color: #00ff00;
             font-family: 'Merriweather', serif;
         }
 
@@ -95,7 +89,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
             overflow: hidden;
         }
 
@@ -118,33 +111,92 @@
         }
 
         a:hover {
-            color: #ff0033;
+            color: #ff0033; /* Hover color for links */
+        }
+        
+        /* Light glitch effect for some texts */
+        .light-glitch {
+            animation: glitch 3s infinite;
         }
 
+        footer {
+            text-align: center;
+            color: #00ff00;
+            padding: 10px; /* Reduced padding for footer */
+            position: relative;
+            z-index: 1; /* Overlay the background */
+            margin-top: 40px; /* Move footer up */
+        }
+
+        .footer-glitch {
+            animation: glitch 2s infinite;
+            font-size: 0.8rem; /* Smaller font size for copyright text */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Toxic Services Title -->
+    <canvas id="matrix"></canvas>
+    <header>
         <h1>Toxic Services</h1>
+        <p class="glitch">Mystery. Power. Anonymity.</p>
+    </header>
+    <section>
+        <h2 class="glitch" data-text="About Us">About Us</h2>
+        <p class="light-glitch">𝕊𝕙𝕠𝕣𝕥 𝕊𝕡𝕖𝕔𝕥𝕣𝕦𝕞: Ϟ 𝔗𝔥𝔦𝔰 𝔦𝔰 𝔱𝔥𝔢 𝔠𝔦𝔯𝔠𝔩𝔢 𝔬𝔣 𝔭𝔬𝔴𝔢𝔯 𝔢𝔫𝔠𝔦𝔯𝔶𝔠𝔲𝔭𝔥𝔬𝔡𝔢 Ϟ 𝕏𝕆𝕏𝕆 𝔍𝔲𝔫𝔰𝔬𝔯 𝔚𝔦𝔥𝔢𝔯𝔞𝔟𝔣𝔞𝔯𝔦 𝔐𝔞𝔢𝔫𝔣𝔦𝔰𝔱𝔦𝔠 𝔭𝔠𝔥𝔬𝔩𝔢𝔱 𝕍𝕠𝕕𝕙𝕖𝕢𝕥𝕤... </p>
+    </section>
+    <section>
+        <h2 class="glitch" data-text="Our Services">Our Services</h2>
+        <p class="light-glitch">Discover the best anonymous solutions. Click here: <a href="https://commerce-website.com" target="_blank">https://commerce-website.com</a></p>
+    </section>
+    <section>
+        <h2 class="glitch" data-text="Contact">Contact</h2>
+        <p class="light-glitch">Connect with us on our Discord: <a href="https://discord.com/invite/yourserver" target="_blank">Discord Server</a></p>
+    </section>
 
-        <!-- About Section -->
-        <div>
-            <h2 class="glitch" data-text="Über uns">Über uns</h2>
-            <p class="glitch" data-text="W!r s1n|> 3i^n 9#äh1 fr!3e H&ck$rz, di3 #I!mh&ll||en der <Städte> brenn3n l@ssen.">W!r s1n|> 3i^n 9#äh1 fr!3e H&ck$rz, di3 #I!mh&ll||en der <Städte> brenn3n l@ssen.</p>
-        </div>
+    <footer>
+        <p class="footer-glitch">
+            &copy; 2024 Toxic Services. All rights reserved. 
+            <span class="footer-glitch">❖✧*༺✦❂✦༻*✧❖</span> 
+            <span class="footer-glitch">⚠️⚡️✱🜃✹</span>
+        </p>
+    </footer>
 
-        <!-- Services Section -->
-        <div>
-            <h2 class="glitch" data-text="Unsere Services">Unsere Services</h2>
-            <p class="glitch" data-text="Entdecke die besten anonymen Lösungen. Klicke hier: <a href='https://commerce-website.com' target='_blank'>https://commerce-website.com</a>">Entdecke die besten anonymen Lösungen. Klicke hier: <a href="https://commerce-website.com" target="_blank">https://commerce-website.com</a></p>
-        </div>
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-        <!-- Contact Section -->
-        <div>
-            <h2 class="glitch" data-text="Kontakt">Kontakt</h2>
-            <p class="glitch" data-text="Verbinde dich mit uns auf unserem Discord: <a href='https://discord.com/invite/yourserver' target='_blank'>Discord Server</a>">Verbinde dich mit uns auf unserem Discord: <a href="https://discord.com/invite/yourserver" target="_blank">Discord Server</a></p>
-        </div>
-    </div>
+        const katakana = 'アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const matrix = katakana.split('');
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = Array.from({ length: columns }).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+
+            drops.forEach((y, i) => {
+                const text = matrix[Math.floor(Math.random() * matrix.length)];
+                const x = i * fontSize;
+                ctx.fillText(text, x, y * fontSize);
+
+                drops[i] = y * fontSize > canvas.height && Math.random() > 0.975 ? 0 : y + 1;
+            });
+        }
+
+        setInterval(drawMatrix, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
